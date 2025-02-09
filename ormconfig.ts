@@ -23,5 +23,5 @@ export default new DataSource({
   migrations: [
     path.join(process.cwd(), 'src', 'database', 'migrations', '*.ts'),
   ],
-  synchronize: false,
+  synchronize: true,
 });
