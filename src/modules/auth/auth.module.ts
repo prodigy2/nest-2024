@@ -9,12 +9,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [
     TypeOrmModule.forFeature([UserEntity]),
-    JwtModule,
-    RedisModule,
     JwtModule.register({
-      secret: process.env.JWT_ACCESS_SECRET || 'fallback-secret',
+      secret: process.env.JWT_ACCESS_SECRET || 'fallback-secret',  // Usa la variabile di ambiente o il valore di fallback
       signOptions: { expiresIn: '1h' },
     }),
+    RedisModule,
   ],
   controllers: [AuthController],
   providers: [AuthService],
